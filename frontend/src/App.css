@@ -63,8 +63,7 @@
 @media print {
   .navigation,
   .footer,
-  .filter-panel,
-  .demo-notes {
+  .filter-panel {
     display: none;
   }
   

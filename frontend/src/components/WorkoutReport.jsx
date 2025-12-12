@@ -104,8 +104,7 @@ const WorkoutReport = () => {
 
           <div className="form-group">
             <label htmlFor="category">
-              Exercise Category 
-              <span className="dynamic-indicator"> (Dynamic)</span>
+              Exercise Category
             </label>
             <select
               id="category"
@@ -114,7 +113,6 @@ const WorkoutReport = () => {
               onChange={handleFilterChange}
             >
               <option value="all">All Categories</option>
-              {/* IMPORTANT: Categories loaded dynamically from database! */}
               {categories.map(cat => (
                 <option key={cat} value={cat}>
                   {cat.charAt(0).toUpperCase() + cat.slice(1)}
@@ -286,31 +284,6 @@ const WorkoutReport = () => {
           )}
         </>
       )}
-
-      {/* DEMO NOTES */}
-      <div className="demo-notes">
-        <h3>📝 Demo Notes - Filtering & Reports</h3>
-        <ul>
-          <li>✅ <strong>Filtering:</strong> Use date range, category, and weight filters</li>
-          <li>✅ <strong>Before/After Demo:</strong> 
-            <ol>
-              <li>Apply filters and note the statistics</li>
-              <li>Go to Exercise Manager or Workout Logger and add/modify data</li>
-              <li>Return here and click "Refresh Report" to see updated statistics</li>
-            </ol>
-          </li>
-          <li>✅ <strong>Dynamic Category Dropdown:</strong> Categories are loaded from the database, not hardcoded</li>
-          <li>✅ <strong>Statistics Update:</strong> All numbers recalculate based on filtered data</li>
-        </ul>
-        <div className="filter-example">
-          <strong>Example Filters to Try:</strong>
-          <ul>
-            <li>Last 7 days: Set start date to 7 days ago</li>
-            <li>Heavy lifting only: Set min weight to 200 lbs</li>
-            <li>Cardio exercises: Select "cardio" category</li>
-          </ul>
-        </div>
-      </div>
     </div>
   );
 };

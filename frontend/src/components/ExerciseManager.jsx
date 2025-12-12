@@ -260,17 +260,6 @@ const ExerciseManager = () => {
           </div>
         )}
       </div>
-
-      {/* DEMO NOTES */}
-      <div className="demo-notes">
-        <h3>📝 Demo Notes</h3>
-        <ul>
-          <li>✅ <strong>INSERT:</strong> Fill out the form above and click "Create Exercise"</li>
-          <li>✅ <strong>UPDATE:</strong> Click "Edit" on any exercise, modify the form, and click "Update Exercise"</li>
-          <li>✅ <strong>DELETE:</strong> Click "Delete" on any exercise (confirmation required)</li>
-          <li>✅ All exercises are fetched dynamically from the data source (not hardcoded)</li>
-        </ul>
-      </div>
     </div>
   );
 };

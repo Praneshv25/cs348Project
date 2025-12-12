@@ -68,12 +68,6 @@
   font-size: 0.95em;
 }
 
-.dynamic-indicator {
-  color: #4CAF50;
-  font-size: 0.85em;
-  font-weight: 600;
-}
-
 .form-group input,
 .form-group select,
 .form-group textarea {
@@ -236,63 +230,6 @@
 
 .workout-details li:last-child {
   border-bottom: none;
-}
-
-/* Demo Notes */
-.demo-notes {
-  background-color: #fff9e6;
-  border: 2px solid #ffd54f;
-  border-radius: 8px;
-  padding: 20px;
-  margin-top: 30px;
-}
-
-.demo-notes h3 {
-  color: #f57f17;
-  margin-bottom: 15px;
-}
-
-.demo-notes ul {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 15px 0;
-}
-
-.demo-notes li {
-  padding: 8px 0;
-  color: #555;
-  line-height: 1.6;
-}
-
-.demo-notes code {
-  background-color: #ffe082;
-  padding: 2px 6px;
-  border-radius: 3px;
-  font-family: 'Courier New', monospace;
-  font-size: 0.9em;
-}
-
-.code-preview {
-  background-color: #263238;
-  color: #aed581;
-  padding: 15px;
-  border-radius: 6px;
-  margin-top: 15px;
-  overflow-x: auto;
-}
-
-.code-preview strong {
-  color: #80deea;
-  display: block;
-  margin-bottom: 10px;
-}
-
-.code-preview pre {
-  margin: 0;
-  font-family: 'Courier New', monospace;
-  font-size: 0.85em;
-  line-height: 1.5;
-  white-space: pre-wrap;
 }
 
 /* Responsive Design */

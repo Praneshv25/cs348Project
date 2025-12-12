@@ -35,7 +35,7 @@ class Exercise(db.Model):
     description = db.Column(db.Text)
     
     # Relationships
-    workout_exercises = db.relationship('WorkoutExercise', backref='exercise', lazy=True)
+    workout_exercises = db.relationship('WorkoutExercise', backref='exercise', lazy=True, cascade='all, delete-orphan')
     
     def to_dict(self):
         return {
@@ -81,7 +81,7 @@ class WorkoutExercise(db.Model):
     
     log_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     workout_id = db.Column(db.Integer, db.ForeignKey('workouts.workout_id', ondelete='CASCADE'), nullable=False)
-    exercise_id = db.Column(db.Integer, db.ForeignKey('exercises.exercise_id'), nullable=False)
+    exercise_id = db.Column(db.Integer, db.ForeignKey('exercises.exercise_id', ondelete='CASCADE'), nullable=False)
     sets = db.Column(db.Integer)
     reps = db.Column(db.Integer)
     weight_lbs = db.Column(db.Float)

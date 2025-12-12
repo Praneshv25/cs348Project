@@ -29,7 +29,7 @@ function App() {
       </main>
       <footer className="footer">
         <p>CS 348 Project - Stage 2 | Workout Tracker Application</p>
-        <p className="tech-stack">React + SQLite + Flask (Frontend with Dummy Data)</p>
+        <p className="tech-stack">React + SQLite + Flask</p>
       </footer>
     </div>
   );

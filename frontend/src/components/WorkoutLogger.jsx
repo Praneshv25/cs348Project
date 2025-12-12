@@ -28,7 +28,7 @@ const WorkoutLogger = () => {
   const [message, setMessage] = useState({ text: '', type: '' });
   const [savedWorkout, setSavedWorkout] = useState(null);
 
-  // Fetch exercises on mount - DYNAMIC LOADING (not hardcoded!)
+  // Fetch exercises on mount
   useEffect(() => {
     loadExercises();
   }, []);
@@ -36,7 +36,6 @@ const WorkoutLogger = () => {
   const loadExercises = async () => {
     setLoading(true);
     try {
-      // This demonstrates dynamic data loading for the dropdown
       const data = await getAllExercises();
       setExercises(data);
     } catch (error) {
@@ -215,15 +214,13 @@ const WorkoutLogger = () => {
           </div>
         </div>
 
-        {/* Exercise Selection - DYNAMICALLY POPULATED */}
         <div className="form-section">
           <h2>Add Exercises</h2>
           <div className="exercise-input-section">
             <div className="form-row">
               <div className="form-group">
                 <label htmlFor="exercise_id">
-                  Exercise * 
-                  <span className="dynamic-indicator"> (Loaded Dynamically)</span>
+                  Exercise *
                 </label>
                 <select
                   id="exercise_id"
@@ -233,7 +230,6 @@ const WorkoutLogger = () => {
                   disabled={loading}
                 >
                   <option value="">-- Select Exercise --</option>
-                  {/* IMPORTANT: This dropdown is built dynamically from database! */}
                   {exercises.map(exercise => (
                     <option key={exercise.exercise_id} value={exercise.exercise_id}>
                       {exercise.name} ({exercise.category})
@@ -389,39 +385,6 @@ const WorkoutLogger = () => {
           </div>
         </div>
       )}
-
-      {/* Demo Notes */}
-      <div className="demo-notes">
-        <h3>📝 Demo Notes - Dynamic UI Components</h3>
-        <ul>
-          <li>✅ <strong>Exercise dropdown is populated dynamically</strong> from the database (not hardcoded!)</li>
-          <li>✅ The <code>getAllExercises()</code> API call fetches all exercises</li>
-          <li>✅ The dropdown is built using <code>exercises.map()</code> over the fetched data</li>
-          <li>✅ If new exercises are added in Exercise Manager, they appear here automatically</li>
-        </ul>
-        <div className="code-preview">
-          <strong>Code snippet:</strong>
-          <pre>{`// Dynamic dropdown population
-const [exercises, setExercises] = useState([]);
-
-useEffect(() => {
-  const loadExercises = async () => {
-    const data = await getAllExercises();
-    setExercises(data);  // NOT hardcoded!
-  };
-  loadExercises();
-}, []);
-
-// Render dropdown
-<select>
-  {exercises.map(ex => (
-    <option key={ex.exercise_id} value={ex.exercise_id}>
-      {ex.name}
-    </option>
-  ))}
-</select>`}</pre>
-        </div>
-      </div>
     </div>
   );
 };
