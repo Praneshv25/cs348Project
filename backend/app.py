@@ -3,6 +3,7 @@ from flask_cors import CORS
 from config import Config
 from models import db
 from routes import api
+import os
 
 def create_app(config_class=Config):
     """Application factory"""
@@ -13,11 +14,25 @@ def create_app(config_class=Config):
     db.init_app(app)
     
     # Enable CORS for React frontend
+    # Allow localhost and all Vercel domains
+    def check_origin(origin):
+        allowed_patterns = [
+            'http://localhost:3000',
+            'http://localhost:3001',
+        ]
+        if origin in allowed_patterns:
+            return True
+        # Allow all Vercel domains
+        if origin and 'vercel.app' in origin:
+            return True
+        return False
+    
     CORS(app, resources={
         r"/api/*": {
-            "origins": ["http://localhost:3000"],
+            "origins": check_origin,
             "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-            "allow_headers": ["Content-Type"]
+            "allow_headers": ["Content-Type"],
+            "supports_credentials": False
         }
     })
     
