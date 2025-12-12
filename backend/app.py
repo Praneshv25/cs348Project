@@ -14,22 +14,13 @@ def create_app(config_class=Config):
     db.init_app(app)
     
     # Enable CORS for React frontend
-    # Allow localhost and all Vercel domains
-    def check_origin(origin):
-        allowed_patterns = [
-            'http://localhost:3000',
-            'http://localhost:3001',
-        ]
-        if origin in allowed_patterns:
-            return True
-        # Allow all Vercel domains
-        if origin and 'vercel.app' in origin:
-            return True
-        return False
-    
+    # Allow localhost and all Vercel domains using regex patterns
     CORS(app, resources={
         r"/api/*": {
-            "origins": check_origin,
+            "origins": [
+                r"http://localhost:\d+",  # Any localhost port
+                r"https://.*\.vercel\.app",  # Any Vercel subdomain
+            ],
             "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
             "allow_headers": ["Content-Type"],
             "supports_credentials": False
